@@ -155,6 +155,7 @@ public class NewJFrame extends javax.swing.JFrame {
         double y = .0017*(x*x)-.5362*x-24.31;
         y*=-1;
         return (int)y;
+        //BRUHHHHHHHHH
     }
     /**
      * @param args the command line arguments
