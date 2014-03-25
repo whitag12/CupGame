@@ -119,21 +119,22 @@ public class NewJFrame extends javax.swing.JFrame {
         Timer time = new Timer();
         final int Cup2X = Cup2.getX();
         final int Cup1X = Cup1.getX();
+        System.out.println("("+Cup1.getX()+","+Cup1.getY()+") (" +Cup2.getX()+","+Cup2.getY()+")");
         time.schedule(new TimerTask(){
             @Override
             public void run(){ 
                 if(clicks == 0){
                 if(Cup1.getX()<Cup2X){
-                    Cup1.setLocation(Cup1.getX()+1,Cup1.getY());
-                    Cup2.setLocation(Cup2.getX()-1, Cup2.getY());
+                    Cup1.setLocation(Cup1.getX()+1,curve1to2(Cup1.getX()+1));
+                    Cup2.setLocation(Cup2.getX()-1, curve2to1(Cup2.getX()-1));
                 }else{
                     clicks++;
                     this.cancel();
                 }
                 }else if (clicks == 1){
                     if(Cup1.getX()>Cup2X){
-                    Cup1.setLocation(Cup1.getX()-1,Cup1.getY());
-                    Cup2.setLocation(Cup2.getX()+1, Cup2.getY());
+                    Cup1.setLocation(Cup1.getX()-1,curve2to1(Cup1.getX()-1));
+                    Cup2.setLocation(Cup2.getX()+1,curve1to2(Cup2.getX()+1));
                 }else{
                     clicks--;
                     this.cancel();
@@ -144,6 +145,17 @@ public class NewJFrame extends javax.swing.JFrame {
         }, 0,1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private static int curve1to2(int x){
+        double y = -.0017*(x*x)+.5362*x-61.69;
+        y*=-1;
+        return (int)y;
+    }
+    
+    private static int curve2to1(int x){
+        double y = .0017*(x*x)-.5362*x-24.31;
+        y*=-1;
+        return (int)y;
+    }
     /**
      * @param args the command line arguments
      */
