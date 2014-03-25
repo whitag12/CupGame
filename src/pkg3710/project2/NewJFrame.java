@@ -6,13 +6,17 @@ package pkg3710.project2;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
  * @author nzayatz14
  */
 public class NewJFrame extends javax.swing.JFrame {
-
+    private int clicks = 0;
     /**
      * Creates new form NewJFrame
      */
@@ -33,6 +37,7 @@ public class NewJFrame extends javax.swing.JFrame {
         Cup1 = new javax.swing.JLabel();
         Cup2 = new javax.swing.JLabel();
         Cup3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -46,6 +51,14 @@ public class NewJFrame extends javax.swing.JFrame {
         Cup2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg3710/project2/imgres.jpg"))); // NOI18N
 
         Cup3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg3710/project2/imgres.jpg"))); // NOI18N
+
+        jButton1.setText("Go!");
+        jButton1.setToolTipText("");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
 
@@ -77,6 +90,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 .add(18, 18, 18)
                 .add(Cup3)
                 .addContainerGap(59, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(319, 319, 319))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -86,7 +103,9 @@ public class NewJFrame extends javax.swing.JFrame {
                     .add(Cup3)
                     .add(Cup2)
                     .add(Cup1))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 229, Short.MAX_VALUE)
+                .add(jButton1)
+                .add(157, 157, 157))
         );
 
         pack();
@@ -96,9 +115,39 @@ public class NewJFrame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Timer time = new Timer();
+        final int Cup2X = Cup2.getX();
+        final int Cup1X = Cup1.getX();
+        time.schedule(new TimerTask(){
+            @Override
+            public void run(){ 
+                if(clicks == 0){
+                if(Cup1.getX()<Cup2X){
+                    Cup1.setLocation(Cup1.getX()+1,Cup1.getY());
+                    Cup2.setLocation(Cup2.getX()-1, Cup2.getY());
+                }else{
+                    clicks++;
+                    this.cancel();
+                }
+                }else if (clicks == 1){
+                    if(Cup1.getX()>Cup2X){
+                    Cup1.setLocation(Cup1.getX()-1,Cup1.getY());
+                    Cup2.setLocation(Cup2.getX()+1, Cup2.getY());
+                }else{
+                    clicks--;
+                    this.cancel();
+                }
+                }
+                
+            }
+        }, 0,1);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /*
          * Set the Nimbus look and feel
@@ -141,6 +190,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Cup1;
     private javax.swing.JLabel Cup2;
     private javax.swing.JLabel Cup3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
