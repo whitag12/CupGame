@@ -38,6 +38,14 @@ public class NewJFrame extends javax.swing.JFrame {
         Cup2 = new javax.swing.JLabel();
         Cup3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        txtAmount = new javax.swing.JTextField();
+        btnCup1 = new javax.swing.JButton();
+        btnCup3 = new javax.swing.JButton();
+        btnCup2 = new javax.swing.JButton();
+        PlaceBet = new javax.swing.JLabel();
+        Level = new javax.swing.JLabel();
+        WinPercentage = new javax.swing.JLabel();
+        MoneyLeft = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -59,6 +67,27 @@ public class NewJFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        txtAmount.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAmountActionPerformed(evt);
+            }
+        });
+
+        btnCup1.setText("Cup 1");
+
+        btnCup3.setText("Cup 3");
+
+        btnCup2.setText("Cup 2");
+
+        PlaceBet.setText("Place Bet:");
+
+        Level.setText("Level:");
+
+        WinPercentage.setText("Win Percentage:");
+
+        MoneyLeft.setText("Money Left:");
 
         jMenu1.setText("File");
 
@@ -82,18 +111,38 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .add(115, 115, 115)
+                .add(btnCup1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btnCup2)
+                .add(142, 142, 142)
+                .add(btnCup3)
+                .add(113, 113, 113))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(PlaceBet)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(txtAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 41, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(303, 303, 303))
             .add(layout.createSequentialGroup()
                 .add(40, 40, 40)
-                .add(Cup1)
-                .add(18, 18, 18)
-                .add(Cup2)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(Cup1)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                                .add(18, 18, 18)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(WinPercentage)
+                                    .add(Level)
+                                    .add(MoneyLeft))))
+                        .add(18, 18, 18)
+                        .add(Cup2)))
                 .add(18, 18, 18)
                 .add(Cup3)
                 .addContainerGap(59, Short.MAX_VALUE))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 114, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(319, 319, 319))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -103,9 +152,24 @@ public class NewJFrame extends javax.swing.JFrame {
                     .add(Cup3)
                     .add(Cup2)
                     .add(Cup1))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 229, Short.MAX_VALUE)
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(btnCup1)
+                    .add(btnCup3)
+                    .add(btnCup2))
+                .add(103, 103, 103)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(txtAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(PlaceBet, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jButton1)
-                .add(157, 157, 157))
+                .add(21, 21, 21)
+                .add(MoneyLeft)
+                .add(18, 18, 18)
+                .add(Level)
+                .add(18, 18, 18)
+                .add(WinPercentage)
+                .add(89, 89, 89))
         );
 
         pack();
@@ -144,6 +208,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         }, 0,1);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
+        
+    }//GEN-LAST:event_txtAmountActionPerformed
 
     private static int curve1to2(int x){
         double y = -.0017*(x*x)+.5362*x-61.69;
@@ -203,10 +271,18 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Cup1;
     private javax.swing.JLabel Cup2;
     private javax.swing.JLabel Cup3;
+    private javax.swing.JLabel Level;
+    private javax.swing.JLabel MoneyLeft;
+    private javax.swing.JLabel PlaceBet;
+    private javax.swing.JLabel WinPercentage;
+    private javax.swing.JButton btnCup1;
+    private javax.swing.JButton btnCup2;
+    private javax.swing.JButton btnCup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JTextField txtAmount;
     // End of variables declaration//GEN-END:variables
 }
