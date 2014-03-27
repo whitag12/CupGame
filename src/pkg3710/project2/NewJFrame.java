@@ -17,7 +17,7 @@ import java.util.TimerTask;
  */
 public class NewJFrame extends javax.swing.JFrame {
     private int clicks = 0;
-    private JFrameSupport support = new JFrameSupport();
+    //private JFrameSupport support = new JFrameSupport();
     /**
      * Creates new form NewJFrame
      */
@@ -190,16 +190,16 @@ public class NewJFrame extends javax.swing.JFrame {
             public void run(){ 
                 if(clicks == 0){
                 if(Cup1.getX()<Cup2X){
-                    Cup1.setLocation(Cup1.getX()+1,support.curve1to2(Cup1.getX()+1));
-                    Cup2.setLocation(Cup2.getX()-1, support.curve2to1(Cup2.getX()-1));
+                    Cup1.setLocation(Cup1.getX()+1,JFrameSupport.curve1to2(Cup1.getX()+1));
+                    Cup2.setLocation(Cup2.getX()-1, JFrameSupport.curve2to1(Cup2.getX()-1));
                 }else{
                     clicks++;
                     this.cancel();
                 }
                 }else if (clicks == 1){
                     if(Cup1.getX()>Cup2X){
-                    Cup1.setLocation(Cup1.getX()-1,support.curve2to1(Cup1.getX()-1));
-                    Cup2.setLocation(Cup2.getX()+1,support.curve1to2(Cup2.getX()+1));
+                    Cup1.setLocation(Cup1.getX()-1,JFrameSupport.curve2to1(Cup1.getX()-1));
+                    Cup2.setLocation(Cup2.getX()+1,JFrameSupport.curve1to2(Cup2.getX()+1));
                 }else{
                     clicks--;
                     this.cancel();
