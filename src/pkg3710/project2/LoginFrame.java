@@ -114,9 +114,9 @@ public class LoginFrame extends javax.swing.JFrame {
         char[] password = {'h','e','l','l','o'};
         
         
-        if(pass == password )
+       // if(pass == password )
             //txtPassword.setText("Correct login!");
-        else
+       // else
             //txtPassword.setText("Incorrect login.");
     }//GEN-LAST:event_buttonEnterActionPerformed
 

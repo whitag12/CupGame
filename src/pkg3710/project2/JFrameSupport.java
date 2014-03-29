@@ -23,5 +23,29 @@ public class JFrameSupport {
         return (int)y;
         //BRUHHHHHHHHH
     }
+    
+    public static int curve1to3(int x){
+        double y = -.0003*(x*x)+.1848*x-49.882;
+        y *=-1;
+        return (int)y;
+    }
+    
+    public static int curve3to1(int x){
+        double y = .0003*(x*x)-.1848*x-36.118;
+        y *=-1;
+        return (int)y;
+    }
+    
+    public static int curve3to2(int x){
+        double y = .0011*(x*x)-.8856*x+117;
+        y*=-1;
+        return (int)y;
+    }
+    
+    public static int curve2to3(int x){
+        double y = -.0011*(x*x)+.8856*x-203;
+        y*=-1;
+        return (int)y;
+    }
 }
 
