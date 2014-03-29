@@ -182,24 +182,24 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Timer time = new Timer();
+        final int Cup3X = Cup3.getX();
         final int Cup2X = Cup2.getX();
-        final int Cup1X = Cup1.getX();
-        //System.out.println("("+Cup1.getX()+","+Cup1.getY()+") (" +Cup2.getX()+","+Cup2.getY()+")");
+        //System.out.println("("+Cup2.getX()+","+Cup2.getY()+") (" +Cup3.getX()+","+Cup3.getY()+")");
         time.schedule(new TimerTask(){
             @Override
             public void run(){ 
                 if(clicks == 0){
-                if(Cup1.getX()<Cup2X){
-                    Cup1.setLocation(Cup1.getX()+1,JFrameSupport.curve1to2(Cup1.getX()+1));
-                    Cup2.setLocation(Cup2.getX()-1, JFrameSupport.curve2to1(Cup2.getX()-1));
+                if(Cup2.getX()<Cup3X){
+                    Cup2.setLocation(Cup2.getX()+1,JFrameSupport.curve2to3(Cup2.getX()+1));
+                    Cup3.setLocation(Cup3.getX()-1, JFrameSupport.curve3to2(Cup3.getX()-1));
                 }else{
                     clicks++;
                     this.cancel();
                 }
                 }else if (clicks == 1){
-                    if(Cup1.getX()>Cup2X){
-                    Cup1.setLocation(Cup1.getX()-1,JFrameSupport.curve2to1(Cup1.getX()-1));
-                    Cup2.setLocation(Cup2.getX()+1,JFrameSupport.curve1to2(Cup2.getX()+1));
+                    if(Cup2.getX()>Cup3X){
+                    Cup2.setLocation(Cup2.getX()-1,JFrameSupport.curve3to2(Cup2.getX()-1));
+                    Cup3.setLocation(Cup3.getX()+1,JFrameSupport.curve2to3(Cup3.getX()+1));
                 }else{
                     clicks--;
                     this.cancel();
