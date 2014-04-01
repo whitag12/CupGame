@@ -21,9 +21,15 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public NewJFrame() {        
+
         initComponents();
         this.getContentPane().setBackground(Color.white);
+        Ball2.setVisible(false);
+        Ball3.setVisible(false);
+        btnCup1.setEnabled(false);
+        btnCup2.setEnabled(false);
+        btnCup3.setEnabled(false);
     }
 
     /**
@@ -47,6 +53,9 @@ public class NewJFrame extends javax.swing.JFrame {
         Level = new javax.swing.JLabel();
         WinPercentage = new javax.swing.JLabel();
         MoneyLeft = new javax.swing.JLabel();
+        Ball1 = new javax.swing.JLabel();
+        Ball2 = new javax.swing.JLabel();
+        Ball3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -90,6 +99,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
         MoneyLeft.setText("Money Left:");
 
+        Ball1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg3710/project2/ball.png"))); // NOI18N
+
+        Ball2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg3710/project2/ball.png"))); // NOI18N
+
+        Ball3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg3710/project2/ball.png"))); // NOI18N
+
         jMenu1.setText("File");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.META_MASK));
@@ -112,38 +127,49 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(40, 40, 40)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(Cup1)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                        .add(18, 18, 18)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(WinPercentage)
+                            .add(Level)
+                            .add(MoneyLeft))))
+                .add(18, 18, 18)
+                .add(Cup2)
+                .add(18, 18, 18)
+                .add(Cup3)
+                .addContainerGap(52, Short.MAX_VALUE))
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .add(131, 131, 131)
+                .add(Ball1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(Ball3)
+                .add(119, 119, 119))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .add(115, 115, 115)
                 .add(btnCup1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(btnCup2)
-                .add(142, 142, 142)
+                .add(152, 152, 152)
                 .add(btnCup3)
-                .add(113, 113, 113))
+                .add(103, 103, 103))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(PlaceBet)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(txtAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 41, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(303, 303, 303))
-            .add(layout.createSequentialGroup()
-                .add(40, 40, 40)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(Ball2)
+                        .add(350, 350, 350))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(Cup1)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
-                                .add(18, 18, 18)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(WinPercentage)
-                                    .add(Level)
-                                    .add(MoneyLeft))))
-                        .add(18, 18, 18)
-                        .add(Cup2)))
-                .add(18, 18, 18)
-                .add(Cup3)
-                .addContainerGap(59, Short.MAX_VALUE))
+                            .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(layout.createSequentialGroup()
+                                .add(PlaceBet)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(txtAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 57, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(331, 331, 331))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -158,13 +184,19 @@ public class NewJFrame extends javax.swing.JFrame {
                     .add(btnCup1)
                     .add(btnCup3)
                     .add(btnCup2))
-                .add(103, 103, 103)
+                .add(29, 29, 29)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(Ball1)
+                        .add(Ball2))
+                    .add(Ball3))
+                .add(46, 46, 46)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(txtAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(PlaceBet, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                    .add(PlaceBet, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(txtAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jButton1)
-                .add(21, 21, 21)
+                .add(25, 25, 25)
                 .add(MoneyLeft)
                 .add(18, 18, 18)
                 .add(Level)
@@ -307,6 +339,9 @@ public class NewJFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Ball1;
+    private javax.swing.JLabel Ball2;
+    private javax.swing.JLabel Ball3;
     private javax.swing.JLabel Cup1;
     private javax.swing.JLabel Cup2;
     private javax.swing.JLabel Cup3;
