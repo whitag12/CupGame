@@ -16,12 +16,13 @@ import java.util.TimerTask;
  * @author nzayatz14
  */
 public class NewJFrame extends javax.swing.JFrame {
+
     private int clicks = 0;
     //private JFrameSupport support = new JFrameSupport();
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {        
+    public NewJFrame() {
 
         initComponents();
         this.getContentPane().setBackground(Color.white);
@@ -217,89 +218,88 @@ public class NewJFrame extends javax.swing.JFrame {
         final int Cup1X = Cup1.getX();
         final int Cup3X = Cup3.getX();
         final int Cup2X = Cup2.getX();
-        final int switchNum = clicks%8;
+        final int switchNum = clicks % 8;
         //System.out.println("("+Cup2.getX()+","+Cup2.getY()+") (" +Cup3.getX()+","+Cup3.getY()+")");
-        time.schedule(new TimerTask(){
+        time.schedule(new TimerTask() {
             @Override
-            public void run(){ 
-                if(switchNum == 0){
-                if(Cup1.getX()<Cup2X){
-                    Cup1.setLocation(Cup1.getX()+1,JFrameSupport.curve1to2(Cup1.getX()+1));
-                    Cup2.setLocation(Cup2.getX()-1, JFrameSupport.curve2to1(Cup2.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
+            public void run() {
+                if (switchNum == 0) {
+                    if (Cup1.getX() < Cup2X) {
+                        Cup1.setLocation(Cup1.getX() + 1, JFrameSupport.curve1to2(Cup1.getX() + 1));
+                        Cup2.setLocation(Cup2.getX() - 1, JFrameSupport.curve2to1(Cup2.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 1) {
+                    if (Cup1.getX() < Cup3X) {
+                        Cup1.setLocation(Cup1.getX() + 1, JFrameSupport.curve2to3(Cup1.getX() + 1));
+                        Cup3.setLocation(Cup3.getX() - 1, JFrameSupport.curve3to2(Cup3.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 2) {
+                    if (Cup2.getX() < Cup3X) {
+                        Cup2.setLocation(Cup2.getX() + 1, JFrameSupport.curve1to2(Cup2.getX() + 1));
+                        Cup3.setLocation(Cup3.getX() - 1, JFrameSupport.curve2to1(Cup3.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 3) {
+                    if (Cup2.getX() < Cup1X) {
+                        Cup2.setLocation(Cup2.getX() + 1, JFrameSupport.curve2to3(Cup2.getX() + 1));
+                        Cup1.setLocation(Cup1.getX() - 1, JFrameSupport.curve3to2(Cup1.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 4) {
+                    if (Cup3.getX() < Cup1X) {
+                        Cup3.setLocation(Cup3.getX() + 1, JFrameSupport.curve1to2(Cup3.getX() + 1));
+                        Cup1.setLocation(Cup1.getX() - 1, JFrameSupport.curve2to1(Cup1.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 5) {
+                    if (Cup3.getX() < Cup2X) {
+                        Cup3.setLocation(Cup3.getX() + 1, JFrameSupport.curve2to3(Cup3.getX() + 1));
+                        Cup2.setLocation(Cup2.getX() - 1, JFrameSupport.curve3to2(Cup2.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 6) {
+                    if (Cup1.getX() < Cup3X) {
+                        Cup1.setLocation(Cup1.getX() + 1, JFrameSupport.curve1to3(Cup1.getX() + 1));
+                        Cup3.setLocation(Cup3.getX() - 1, JFrameSupport.curve3to1(Cup3.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
+                } else if (switchNum == 7) {
+                    if (Cup3.getX() < Cup1X) {
+                        Cup3.setLocation(Cup3.getX() + 1, JFrameSupport.curve1to3(Cup3.getX() + 1));
+                        Cup1.setLocation(Cup1.getX() - 1, JFrameSupport.curve3to1(Cup1.getX() - 1));
+                    } else {
+                        clicks++;
+                        this.cancel();
+                    }
                 }
-                }else if (switchNum == 1){
-                if(Cup1.getX()<Cup3X){
-                    Cup1.setLocation(Cup1.getX()+1,JFrameSupport.curve2to3(Cup1.getX()+1));
-                    Cup3.setLocation(Cup3.getX()-1,JFrameSupport.curve3to2(Cup3.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }else if (switchNum == 2){
-                if(Cup2.getX()<Cup3X){
-                    Cup2.setLocation(Cup2.getX()+1,JFrameSupport.curve1to2(Cup2.getX()+1));
-                    Cup3.setLocation(Cup3.getX()-1,JFrameSupport.curve2to1(Cup3.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }else if (switchNum == 3){
-                if(Cup2.getX()<Cup1X){
-                    Cup2.setLocation(Cup2.getX()+1,JFrameSupport.curve2to3(Cup2.getX()+1));
-                    Cup1.setLocation(Cup1.getX()-1,JFrameSupport.curve3to2(Cup1.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }else if (switchNum == 4){
-                if(Cup3.getX()<Cup1X){
-                    Cup3.setLocation(Cup3.getX()+1,JFrameSupport.curve1to2(Cup3.getX()+1));
-                    Cup1.setLocation(Cup1.getX()-1,JFrameSupport.curve2to1(Cup1.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }else if (switchNum == 5){
-                if(Cup3.getX()<Cup2X){
-                    Cup3.setLocation(Cup3.getX()+1,JFrameSupport.curve2to3(Cup3.getX()+1));
-                    Cup2.setLocation(Cup2.getX()-1,JFrameSupport.curve3to2(Cup2.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }else if (switchNum == 6){
-                if(Cup1.getX()<Cup3X){
-                    Cup1.setLocation(Cup1.getX()+1,JFrameSupport.curve1to3(Cup1.getX()+1));
-                    Cup3.setLocation(Cup3.getX()-1,JFrameSupport.curve3to1(Cup3.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }else if (switchNum == 7){
-                if(Cup3.getX()<Cup1X){
-                    Cup3.setLocation(Cup3.getX()+1,JFrameSupport.curve1to3(Cup3.getX()+1));
-                    Cup1.setLocation(Cup1.getX()-1,JFrameSupport.curve3to1(Cup1.getX()-1));
-                }else{
-                    clicks++;
-                    this.cancel();
-                }
-                }
-                
+
             }
-        }, 0,1);
+        }, 0, 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
-        
+
     }//GEN-LAST:event_txtAmountActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
         /*
          * Set the Nimbus look and feel
