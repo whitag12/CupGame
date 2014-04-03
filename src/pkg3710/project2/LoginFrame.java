@@ -28,11 +28,24 @@ public class LoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
         txtUsername = new javax.swing.JTextField();
         labelUsername = new javax.swing.JLabel();
         labelPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         buttonEnter = new javax.swing.JButton();
+        newUserButton = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,10 +66,17 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
-        buttonEnter.setText("Enter");
+        buttonEnter.setText("Login");
         buttonEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEnterActionPerformed(evt);
+            }
+        });
+
+        newUserButton.setText("Create New User");
+        newUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newUserButtonActionPerformed(evt);
             }
         });
 
@@ -76,6 +96,10 @@ public class LoginFrame extends javax.swing.JFrame {
                         .addComponent(txtPassword)
                         .addComponent(txtUsername)))
                 .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newUserButton)
+                .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +114,9 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(buttonEnter)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newUserButton)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,6 +145,20 @@ public class LoginFrame extends javax.swing.JFrame {
        // else
             //txtPassword.setText("Incorrect login.");
     }//GEN-LAST:event_buttonEnterActionPerformed
+
+    private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
+        // TODO add your handling code here:
+        //click create new user button, go to new page
+        CreateNewUser.frame = LoginFrame.frame;
+        CreateNewUser.java.setVisible(true);
+        LoginFrame.this.setVisible(false);
+        
+        //enter username
+        //enter password
+        //enter password again
+        //verify password
+        //save username and password
+    }//GEN-LAST:event_newUserButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,8 +197,10 @@ public class LoginFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonEnter;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelUsername;
+    private javax.swing.JButton newUserButton;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
