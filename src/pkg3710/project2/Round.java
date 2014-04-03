@@ -11,7 +11,7 @@ package pkg3710.project2;
  */
 public class Round {
 
-    public void swapGraphics(int a, int b) {
+    public static void swapGraphics(int a, int b) {
 
     }
 }
