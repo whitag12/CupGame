@@ -175,9 +175,9 @@ public class LoginFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //click create new user button, go to CreateNewUser.java page
-        LoginFrame.java = CreateNewUser.java;
+        /*LoginFrame.java = CreateNewUser.java;
         CreateNewUser.java.setVisible(true);
-        LoginFrame.this.setVisible(false);
+        LoginFrame.this.setVisible(false);*/
         //test
     }//GEN-LAST:event_newUserButtonActionPerformed
 
