@@ -178,7 +178,7 @@ public class LoginFrame extends javax.swing.JFrame {
         LoginFrame.java = CreateNewUser.java;
         CreateNewUser.java.setVisible(true);
         LoginFrame.this.setVisible(false);
-        
+        //test
     }//GEN-LAST:event_newUserButtonActionPerformed
 
     /**
