@@ -6,6 +6,9 @@
 
 package pkg3710.project2;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 /**
  *
  * @author greyson233
@@ -136,28 +139,46 @@ public class LoginFrame extends javax.swing.JFrame {
         String username = txtUsername.getText();
         char[] pass = txtPassword.getPassword();
         
+        String fileName = "";
+        String fileUsername = "";
+        String filePassword = "";
+        
         //get password stored in the player's file
-        char[] password = {'h','e','l','l','o'};
         
+        //try, catch; save the file details
+        try{
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        fileUsername = br.readLine();
+        filePassword = br.readLine();
+        br.close();
+        }catch(Exception ex){
+            //System.out.println( "Text File Written To file" );
+        }
         
-       // if(pass == password )
+        String password = String.valueOf(pass);
+        
+        if(password != filePassword){
             //txtPassword.setText("Correct login!");
-       // else
-            //txtPassword.setText("Incorrect login.");
+            System.out.println("ERROR! Password is not correct. Please try again.");
+            //clear the text box
+            txtPassword.setText("");
+        }
+        else if (password == filePassword){
+            //ask if user wants to continue from this last state or start a new game
+            
+            //connecct to appropriate screen
+        }
+        
     }//GEN-LAST:event_buttonEnterActionPerformed
 
     private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
         // TODO add your handling code here:
-        //click create new user button, go to new page
-        CreateNewUser.frame = LoginFrame.frame;
+        
+        //click create new user button, go to CreateNewUser.java page
+        LoginFrame.java = CreateNewUser.java;
         CreateNewUser.java.setVisible(true);
         LoginFrame.this.setVisible(false);
         
-        //enter username
-        //enter password
-        //enter password again
-        //verify password
-        //save username and password
     }//GEN-LAST:event_newUserButtonActionPerformed
 
     /**

@@ -6,7 +6,11 @@
 
 package pkg3710.project2;
 
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author greyson233
@@ -35,7 +39,7 @@ public class CreateNewUser extends javax.swing.JFrame {
         labelUsername = new javax.swing.JLabel();
         labelPassword = new javax.swing.JLabel();
         labelPassword1 = new javax.swing.JLabel();
-        txtReenterPassword = new javax.swing.JPasswordField();
+        txtPassword2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,10 +69,10 @@ public class CreateNewUser extends javax.swing.JFrame {
 
         labelPassword1.setText("Re-enter Password:");
 
-        txtReenterPassword.setText("jPasswordField1");
-        txtReenterPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword2.setText("jPasswordField1");
+        txtPassword2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtReenterPasswordActionPerformed(evt);
+                txtPassword2ActionPerformed(evt);
             }
         });
 
@@ -77,22 +81,19 @@ public class CreateNewUser extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelUsername))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPassword)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelPassword1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtReenterPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(labelPassword1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(labelUsername)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtPassword2)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(buttonEnter)
@@ -112,7 +113,7 @@ public class CreateNewUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPassword1)
-                    .addComponent(txtReenterPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(buttonEnter)
                 .addGap(47, 47, 47))
@@ -126,33 +127,41 @@ public class CreateNewUser extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void buttonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnterActionPerformed
-        // TODO add your handling code here:
+        BufferedWriter bw = null;
+
         String username = txtUsername.getText();
         char[] pass = txtPassword.getPassword();
-        char[] pass2 = txtReenterPassword.getPassword();
-
+        char[] pass2 = txtPassword2.getPassword();
+        //if the passwords don't match
         while (pass != pass2) {
-        //display error & try again
+            //display error & try again
+            System.out.println("ERROR! Your passwords do not match, please try again.");
+            //clear the text boxes
+            txtPassword.setText("");
+            txtPassword2.setText("");
+        }   
+            
+        try {    
+            bw = new BufferedWriter(new FileWriter(username+".txt", true));
+            bw.write(username);
+            bw.write("\n");
+            bw.write(pass);
+            bw.write("\n");
+            bw.close();
+        }catch(Exception ex){
+            System.out.println( "Text File Written To file" );
         }
         
-        //add player's info to a text file
-        bw = new BufferedWriter(new FileWriter(txtUsername,true));  
-        bw.write(txtUsername);  
-        bw.write("\n");  
-        bw.write(txtPassword);  
-        bw.write("\n");  
-        bw.close(); 
-        
-        //go to the game screen 
+            //go to the game screen 
     }//GEN-LAST:event_buttonEnterActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void txtReenterPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReenterPasswordActionPerformed
+    private void txtPassword2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassword2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtReenterPasswordActionPerformed
+    }//GEN-LAST:event_txtPassword2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +204,7 @@ public class CreateNewUser extends javax.swing.JFrame {
     private javax.swing.JLabel labelPassword1;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JPasswordField txtReenterPassword;
+    private javax.swing.JPasswordField txtPassword2;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
